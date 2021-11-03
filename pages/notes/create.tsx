@@ -12,7 +12,7 @@ function Create(props: CreateProps) {
   const title = useRef<HTMLInputElement>(null)
   const description = useRef<HTMLInputElement>(null)
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async event => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
 
     let note: Note = { title: '', description: '' }
@@ -38,11 +38,18 @@ function Create(props: CreateProps) {
     <div>
       <h1>Create a New Note</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='title'>Title</label>
-        <input id='title' type='text' ref={title}></input>
-        <label htmlFor='description'>Description</label>
-        <input id='description' type='text' ref={description}></input>
-        <button type='submit'>Submit</button>
+        <label htmlFor="title">Title</label>
+        <input id="title" type="text" ref={title}></input>
+        <label htmlFor="description">Description</label>
+        <input id="description" type="text" ref={description}></input>
+        <button type="submit">Submit</button>
+        <button
+          onClick={() => {
+            router.push('/')
+          }}
+        >
+          Go Back
+        </button>
       </form>
     </div>
   )

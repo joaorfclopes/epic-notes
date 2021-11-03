@@ -12,15 +12,15 @@ function Index(props: IndexProps) {
     <div>
       <h1>Notes</h1>
       <h2>Click On Note to see it individually</h2>
-      {notes.map(note => (
-        <Link key={note._id} href={`/notes/${note._id}`}>
+      {notes.map((note) => (
+        <Link key={note._id} href={`/notes/${note._id}`} passHref>
           <div style={{ cursor: 'pointer' }}>
             <h1>{note.title}</h1>
             <h3>{note.description}</h3>
           </div>
         </Link>
       ))}
-      <Link href='/notes/create'>
+      <Link href="/notes/create" passHref>
         <button>Create a New Todo</button>
       </Link>
     </div>

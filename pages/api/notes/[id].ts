@@ -31,4 +31,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   else res.status(400).json({ error: 'No Response for This Request' })
 }
 
+export const config = {
+  api: {
+    externalResolver: true
+  }
+}
+
 export default handler
