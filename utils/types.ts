@@ -10,3 +10,8 @@ export interface Note {
   title: string
   description: string
 }
+
+export interface Theme {
+  dark: string
+  light: string
+}
