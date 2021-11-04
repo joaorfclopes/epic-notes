@@ -1,15 +1,18 @@
-import Image from 'next/image'
 import React from 'react'
+import Logo from '../../icons/Logo'
 import styles from '../../styles/Navbar.module.css'
+import Toggler from '../Toggler'
 
 export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.element}>
-          <Image src="/note.svg" width="40px" height="40px" />
+        <div className={(styles.element, styles.logo_container)}>
+          <Logo />
         </div>
-        <div className={styles.element}>Right</div>
+        <div className={styles.element}>
+          <Toggler />
+        </div>
       </div>
     </div>
   )
