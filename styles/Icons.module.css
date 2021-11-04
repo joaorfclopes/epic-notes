@@ -1,7 +1,4 @@
-.logo {
+.icon {
   fill: var(--icon-color);
-}
-
-.toggle {
-  fill: var(--icon-color);
+  transition: var(--ease-transition);
 }

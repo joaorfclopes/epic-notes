@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
+  transition: var(--ease-transition);
 }
 
 a {
@@ -18,6 +19,7 @@ a {
 :root {
   --bg-color: #fff;
   --icon-color: #000;
+  --ease-transition: ease 0.5s;
 }
 
 [data-theme='dark'] {
