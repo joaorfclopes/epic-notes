@@ -20,35 +20,55 @@ a {
   --ease-transition: all 0.5s ease;
   --navbar-height: 80px;
   --icon-width: 30px;
+  --border-radius-card: 10px;
+  --box-shadow-card: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 [data-theme='light'] {
   --bg-color: #fff;
+  --bg-color-secondary: #fff;
   --primary-color: #121212;
 }
 
 [data-theme='dark'] {
   --bg-color: #121212;
+  --bg-color-secondary: #202020;
   --primary-color: #fff;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
   :root {
     --container-padding: 0 20px;
     --font-size: 16px;
+    --grid-columns: 1;
+    --action-button-right: 20px;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   :root {
-    --container-padding: 0 100px;
+    --container-padding: 0 20px;
     --font-size: 18px;
+    --grid-columns: 2;
+    --action-button-right: 20px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  :root {
+    --container-padding: 0 60px;
+    --font-size: 20px;
+    --grid-columns: 3;
+    --action-button-right: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   :root {
     --container-padding: 0 200px;
     --font-size: 20px;
+    --grid-columns: 4;
+    --action-button-right: 200px;
   }
 }

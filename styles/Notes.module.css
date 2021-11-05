@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 20px;
+}
+
+.element {
+  color: var(--primary-color);
+  background-color: var(--bg-color-secondary);
+  transition: var(--ease-transition);
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--box-shadow-card);
+  padding: 20px;
+  cursor: pointer;
+}
+
+.element_title,
+.element_description {
+  margin: 0;
+}
