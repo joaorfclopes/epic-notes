@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import Notes from '../components/Notes'
 import styles from '../styles/Index.module.css'
 import { Note } from '../utils/types'
 
@@ -53,6 +54,7 @@ function Index(props: IndexProps) {
       </Head>
       <main className={styles.main}>
         <Navbar />
+        <Notes notes={notes} />
       </main>
     </div>
   )
