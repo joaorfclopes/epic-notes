@@ -2,42 +2,34 @@ import React, { useEffect, useState } from 'react'
 import Logo from '../../icons/Logo'
 import Toggle from '../../icons/Toggle'
 import styles from '../../styles/Navbar.module.css'
-import { Theme } from '../../utils/types'
 
 export default function Navbar() {
-  const theme: Theme = {
-    dark: 'dark',
-    light: 'light'
+  const [darkTheme, setDarkTheme] = useState(Boolean)
+
+  const handleToggle = () => {
+    setDarkTheme(!darkTheme)
   }
-
-  const [mode, setMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const val = localStorage.getItem('theme')
-      return val ? JSON.parse(val) : theme.dark
-    }
-    return theme.dark
-  })
-
-  const darkMode = () => {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    return theme.dark
-  }
-
-  const lightMode = () => {
-    document.documentElement.setAttribute('data-theme', 'light')
-    return theme.light
-  }
-
-  const toggleMode = () => {
-    setMode(mode === theme.light ? darkMode() : lightMode())
+  const storeUserSetPreference = (pref: string) => {
+    localStorage.setItem('theme', pref)
   }
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', JSON.stringify(mode))
-      document.documentElement.setAttribute('data-theme', mode)
+    const initialColorValue = document.documentElement.style.getPropertyValue(
+      '--initial-color-mode'
+    )
+    setDarkTheme(initialColorValue === 'dark')
+  }, [])
+  useEffect(() => {
+    if (darkTheme !== undefined) {
+      if (darkTheme) {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        storeUserSetPreference('dark')
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light')
+        storeUserSetPreference('light')
+      }
     }
-  }, [mode])
+  }, [darkTheme])
 
   return (
     <div className={styles.navbar}>
@@ -49,7 +41,7 @@ export default function Navbar() {
           <div className={styles.app_name}>Epic Notes</div>
         </div>
         <div className={styles.element}>
-          <div className={styles.toggler} onClick={toggleMode}>
+          <div className={styles.toggler} onClick={handleToggle}>
             <Toggle />
           </div>
         </div>
