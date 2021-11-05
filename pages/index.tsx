@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import AddButton from '../components/AddButton'
 import Navbar from '../components/Navbar'
 import Notes from '../components/Notes'
 import styles from '../styles/Index.module.css'
@@ -55,6 +56,7 @@ function Index(props: IndexProps) {
       <main className={styles.main}>
         <Navbar />
         <Notes notes={notes} />
+        <AddButton />
       </main>
     </div>
   )
