@@ -1,0 +1,28 @@
+.input {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--font-size);
+  background: var(--bg-color-secondary);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: var(--ease-transition);
+  box-shadow: var(--box-shadow-card);
+}
+
+.description_input {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 200px;
+  line-height: 20px;
+  resize: none;
+}
+
+.description_input[contenteditable]:empty::before {
+  content: 'Description';
+  color: gray;
+}

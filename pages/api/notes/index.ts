@@ -14,7 +14,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     },
     POST: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Note } = await connect()
-      res.json(await Note.create(req.body).catch(catcher))
+      if (!(req.body.title === '' && req.body.description === '')) {
+        res.json(await Note.create(req.body).catch(catcher))
+      }
     }
   }
 

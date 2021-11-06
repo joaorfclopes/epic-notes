@@ -1,0 +1,10 @@
+.button {
+  background-color: var(--primary-color);
+  transition: var(--ease-transition);
+  border: none;
+  margin-right: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: var(--bg-color);
+}

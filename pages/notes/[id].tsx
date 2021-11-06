@@ -1,26 +1,29 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEventHandler, useRef, useState } from 'react'
+import buttonStyles from '../../styles/Button.module.css'
+import inputStyles from '../../styles/Input.module.css'
 import { Note } from '../../utils/types'
 
-interface ShowProps {
+interface Props {
   note: Note
   url: string
 }
 
-function Show(props: ShowProps) {
+function Note(props: Props) {
   const router = useRouter()
 
   const [note, setNote] = useState<Note>(props.note)
 
   const title = useRef<HTMLInputElement>(null)
-  const description = useRef<HTMLInputElement>(null)
+  const description = useRef<HTMLSpanElement>(null)
 
-  const handleEdit: FormEventHandler<HTMLFormElement> = async event => {
+  const handleEdit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
 
     const newNote: Note = {
       title: title.current?.value as string,
-      description: description.current?.value as string
+      description: description.current?.innerText as string
     }
     await fetch(props.url + '/' + note._id, {
       method: 'put',
@@ -41,25 +44,37 @@ function Show(props: ShowProps) {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Epic Notes | {note.title}</title>
+      </Head>
       <form onSubmit={handleEdit}>
-        <label htmlFor='title'>Title</label>
         <input
-          id='title'
-          type='text'
+          id="title"
+          className={`${inputStyles.input} ${inputStyles.title_input}`}
+          type="text"
           ref={title}
+          placeholder="Title"
           defaultValue={note.title}
         ></input>
-        <label htmlFor='description'>Description</label>
-        <input
-          id='description'
-          type='text'
+        <span
+          id="description"
+          className={`${inputStyles.input} ${inputStyles.description_input}`}
+          role="textbox"
+          contentEditable
           ref={description}
-          defaultValue={note.description}
-        ></input>
-        <button type='submit'>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+          placeholder="Description"
+        >
+          {note.description}
+        </span>
+        <button className={buttonStyles.button} type="submit">
+          Edit
+        </button>
+        <button className={buttonStyles.button} onClick={handleDelete}>
+          Delete
+        </button>
         <button
+          className={buttonStyles.button}
           onClick={() => {
             router.push('/')
           }}
@@ -67,7 +82,7 @@ function Show(props: ShowProps) {
           Go Back
         </button>
       </form>
-    </div>
+    </>
   )
 }
 
@@ -80,4 +95,4 @@ export async function getServerSideProps(context: any) {
   return { props: { note, url: process.env.API_URL } }
 }
 
-export default Show
+export default Note

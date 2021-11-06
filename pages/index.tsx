@@ -1,19 +1,17 @@
 import Head from 'next/head'
 import AddButton from '../components/AddButton'
-import Navbar from '../components/Navbar'
 import Notes from '../components/Notes'
-import styles from '../styles/Index.module.css'
 import { Note } from '../utils/types'
 
-interface IndexProps {
+interface Props {
   notes: Array<Note>
 }
 
-function Index(props: IndexProps) {
+function Index(props: Props) {
   const { notes } = props
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Epic Notes</title>
         <meta
@@ -53,12 +51,11 @@ function Index(props: IndexProps) {
           rel="stylesheet"
         />
       </Head>
-      <main className={styles.main}>
-        <Navbar />
+      <main>
         <Notes notes={notes} />
         <AddButton />
       </main>
-    </div>
+    </>
   )
 }
 

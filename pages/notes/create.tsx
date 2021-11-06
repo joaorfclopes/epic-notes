@@ -1,16 +1,19 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEventHandler, useRef } from 'react'
+import buttonStyles from '../../styles/Button.module.css'
+import inputStyles from '../../styles/Input.module.css'
 import { Note } from '../../utils/types'
 
-interface CreateProps {
+interface Props {
   url: string
 }
 
-function Create(props: CreateProps) {
+function CreateNote(props: Props) {
   const router = useRouter()
 
   const title = useRef<HTMLInputElement>(null)
-  const description = useRef<HTMLInputElement>(null)
+  const description = useRef<HTMLSpanElement>(null)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
@@ -19,7 +22,7 @@ function Create(props: CreateProps) {
     if (null !== title.current || null !== description.current) {
       note = {
         title: title.current?.value as string,
-        description: description.current?.value as string
+        description: description.current?.innerText as string
       }
     }
 
@@ -35,15 +38,32 @@ function Create(props: CreateProps) {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Epic Notes | Create</title>
+      </Head>
       <h1>Create a New Note</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input id="title" type="text" ref={title}></input>
-        <label htmlFor="description">Description</label>
-        <input id="description" type="text" ref={description}></input>
-        <button type="submit">Submit</button>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <input
+          id="title"
+          className={`${inputStyles.input} ${inputStyles.title_input}`}
+          type="text"
+          ref={title}
+          placeholder="Title"
+        ></input>
+        <span
+          id="description"
+          className={`${inputStyles.input} ${inputStyles.description_input}`}
+          role="textbox"
+          contentEditable
+          ref={description}
+          placeholder="Description"
+        />
+        <button className={buttonStyles.button} type="submit">
+          Create
+        </button>
         <button
+          className={buttonStyles.button}
           onClick={() => {
             router.push('/')
           }}
@@ -51,7 +71,7 @@ function Create(props: CreateProps) {
           Go Back
         </button>
       </form>
-    </div>
+    </>
   )
 }
 
@@ -63,4 +83,4 @@ export async function getStaticProps(context: any) {
   }
 }
 
-export default Create
+export default CreateNote
