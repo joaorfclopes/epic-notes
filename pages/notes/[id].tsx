@@ -15,7 +15,7 @@ function Show(props: ShowProps) {
   const title = useRef<HTMLInputElement>(null)
   const description = useRef<HTMLInputElement>(null)
 
-  const handleEdit: FormEventHandler<HTMLFormElement> = async event => {
+  const handleEdit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
 
     const newNote: Note = {
@@ -41,23 +41,23 @@ function Show(props: ShowProps) {
   }
 
   return (
-    <div>
+    <>
       <form onSubmit={handleEdit}>
-        <label htmlFor='title'>Title</label>
+        <label htmlFor="title">Title</label>
         <input
-          id='title'
-          type='text'
+          id="title"
+          type="text"
           ref={title}
           defaultValue={note.title}
         ></input>
-        <label htmlFor='description'>Description</label>
+        <label htmlFor="description">Description</label>
         <input
-          id='description'
-          type='text'
+          id="description"
+          type="text"
           ref={description}
           defaultValue={note.description}
         ></input>
-        <button type='submit'>Edit</button>
+        <button type="submit">Edit</button>
         <button onClick={handleDelete}>Delete</button>
         <button
           onClick={() => {
@@ -67,7 +67,7 @@ function Show(props: ShowProps) {
           Go Back
         </button>
       </form>
-    </div>
+    </>
   )
 }
 

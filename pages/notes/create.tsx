@@ -35,7 +35,7 @@ function Create(props: CreateProps) {
   }
 
   return (
-    <div>
+    <>
       <h1>Create a New Note</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
@@ -51,7 +51,7 @@ function Create(props: CreateProps) {
           Go Back
         </button>
       </form>
-    </div>
+    </>
   )
 }
 

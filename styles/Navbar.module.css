@@ -22,8 +22,6 @@
 .app_name {
   margin-left: 20px;
   font-size: var(--font-size);
-  color: var(--primary-color);
-  transition: var(--ease-transition);
 }
 
 .toggler {
