@@ -2,11 +2,11 @@ import { useRouter } from 'next/router'
 import { FormEventHandler, useRef } from 'react'
 import { Note } from '../../utils/types'
 
-interface CreateProps {
+interface Props {
   url: string
 }
 
-function Create(props: CreateProps) {
+function CreateNote(props: Props) {
   const router = useRouter()
 
   const title = useRef<HTMLInputElement>(null)
@@ -63,4 +63,4 @@ export async function getStaticProps(context: any) {
   }
 }
 
-export default Create
+export default CreateNote

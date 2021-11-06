@@ -2,12 +2,12 @@ import { useRouter } from 'next/router'
 import { FormEventHandler, useRef, useState } from 'react'
 import { Note } from '../../utils/types'
 
-interface ShowProps {
+interface Props {
   note: Note
   url: string
 }
 
-function Show(props: ShowProps) {
+function Note(props: Props) {
   const router = useRouter()
 
   const [note, setNote] = useState<Note>(props.note)
@@ -80,4 +80,4 @@ export async function getServerSideProps(context: any) {
   return { props: { note, url: process.env.API_URL } }
 }
 
-export default Show
+export default Note

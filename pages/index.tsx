@@ -3,11 +3,11 @@ import AddButton from '../components/AddButton'
 import Notes from '../components/Notes'
 import { Note } from '../utils/types'
 
-interface IndexProps {
+interface Props {
   notes: Array<Note>
 }
 
-function Index(props: IndexProps) {
+function Index(props: Props) {
   const { notes } = props
 
   return (
