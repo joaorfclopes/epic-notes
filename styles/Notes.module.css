@@ -10,7 +10,7 @@
   color: var(--primary-color);
   background-color: var(--bg-color-secondary);
   transition: var(--ease-transition);
-  border-radius: var(--border-radius-card);
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-card);
   padding: 20px;
   cursor: pointer;
