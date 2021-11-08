@@ -6,13 +6,9 @@ import Layout from '../components/Layout'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  Router.events.on('routeChangeStart', (url: string) => {
-    NProgress.start()
-  })
-
-  Router.events.on('routeChangeComplete', (url: string) => {
-    NProgress.done()
-  })
+  Router.events.on('routeChangeStart', () => NProgress.start())
+  Router.events.on('routeChangeComplete', () => NProgress.done())
+  Router.events.on('routeChangeError', () => NProgress.done())
 
   return (
     <>
