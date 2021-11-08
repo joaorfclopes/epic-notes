@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import Layout from '../components/Layout'
@@ -14,10 +15,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
   return (
-    <Layout>
-      <link rel="stylesheet" href="/nprogress.css" />
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <link rel="stylesheet" href="/nprogress.css" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }
 
