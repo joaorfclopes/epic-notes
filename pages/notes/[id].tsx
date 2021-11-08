@@ -64,6 +64,7 @@ function Note(props: Props) {
           contentEditable
           ref={description}
           placeholder="Description"
+          suppressContentEditableWarning={true}
         >
           {note.description}
         </span>
