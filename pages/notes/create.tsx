@@ -38,7 +38,7 @@ function CreateNote(props: Props) {
   }
 
   return (
-    <>
+    <div className="page">
       <Head>
         <title>Epic Notes | Create</title>
       </Head>
@@ -71,7 +71,7 @@ function CreateNote(props: Props) {
           Go Back
         </button>
       </form>
-    </>
+    </div>
   )
 }
 

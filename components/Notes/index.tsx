@@ -11,7 +11,7 @@ export default function Notes(props: Props) {
   const { notes } = props
 
   return (
-    <div className={styles.grid}>
+    <div className={`${styles.grid} page`}>
       {notes?.map((note) => (
         <Link key={note._id} href={`/notes/${note._id}`}>
           <div className={styles.element}>
