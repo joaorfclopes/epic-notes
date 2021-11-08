@@ -36,12 +36,14 @@ span:focus {
   --bg-color: #fff;
   --bg-color-secondary: #fff;
   --primary-color: #121212;
+  --loading-color: #43635f;
 }
 
 [data-theme='dark'] {
   --bg-color: #121212;
   --bg-color-secondary: #202020;
   --primary-color: #fff;
+  --loading-color: #9ed3c9;
 }
 
 @media screen and (max-width: 480px) {
