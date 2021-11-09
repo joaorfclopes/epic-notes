@@ -7,7 +7,7 @@
 
 ### Setup 🏁
 
-After cloning the project run `yarn setup`
+After cloning the project run `yarn install`
 
 ### Run 💨
 
