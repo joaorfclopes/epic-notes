@@ -51,7 +51,8 @@ span:focus {
     --container-padding: 0 20px;
     --font-size: 16px;
     --grid-columns: 1;
-    --action-button-right: 20px;
+    --fixed-items-right: 20px;
+    --modal-width: 90%;
   }
 }
 
@@ -60,7 +61,8 @@ span:focus {
     --container-padding: 0 20px;
     --font-size: 18px;
     --grid-columns: 2;
-    --action-button-right: 20px;
+    --fixed-items-right: 20px;
+    --modal-width: 400px;
   }
 }
 
@@ -69,7 +71,8 @@ span:focus {
     --container-padding: 0 60px;
     --font-size: 20px;
     --grid-columns: 3;
-    --action-button-right: 60px;
+    --fixed-items-right: 60px;
+    --modal-width: 400px;
   }
 }
 
@@ -78,6 +81,7 @@ span:focus {
     --container-padding: 0 200px;
     --font-size: 20px;
     --grid-columns: 4;
-    --action-button-right: 200px;
+    --fixed-items-right: 200px;
+    --modal-width: 400px;
   }
 }

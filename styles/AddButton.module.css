@@ -1,7 +1,7 @@
 .add {
   position: fixed;
   bottom: 15px;
-  right: var(--action-button-right);
+  right: var(--fixed-items-right);
   cursor: pointer;
   width: 35px;
 }
