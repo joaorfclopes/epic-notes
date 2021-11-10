@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEventHandler, useRef, useState } from 'react'
+import Modal from '../../components/Modal'
 import buttonStyles from '../../styles/Button.module.css'
 import inputStyles from '../../styles/Input.module.css'
 import { Note } from '../../utils/types'
@@ -14,6 +15,7 @@ function Note(props: Props) {
   const router = useRouter()
 
   const [note, setNote] = useState<Note>(props.note)
+  const [isOpened, setIsOpened] = useState<boolean>(false)
 
   const title = useRef<HTMLInputElement>(null)
   const description = useRef<HTMLSpanElement>(null)
@@ -71,7 +73,13 @@ function Note(props: Props) {
         <button className={buttonStyles.button} type="submit">
           Edit
         </button>
-        <button className={buttonStyles.button} onClick={handleDelete}>
+        <button
+          className={buttonStyles.button}
+          type="button"
+          onClick={() => {
+            setIsOpened(true)
+          }}
+        >
           Delete
         </button>
         <button
@@ -83,6 +91,12 @@ function Note(props: Props) {
           Go Back
         </button>
       </form>
+      <Modal
+        name="delete"
+        isOpened={isOpened}
+        setIsOpened={setIsOpened}
+        action={handleDelete}
+      />
     </div>
   )
 }
