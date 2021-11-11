@@ -13,19 +13,19 @@ export default function Modal(props: Props) {
   const { name, isOpened, setIsOpened, action } = props
 
   const openModal = () => {
-    const modal: any = document?.getElementById('modal')
+    const modal = document?.getElementById('modal')
     if (modal) modal.style.display = 'block'
     setIsOpened(true)
   }
 
   const closeModal = () => {
-    const modal: any = document?.getElementById('modal')
+    const modal = document?.getElementById('modal')
     if (modal) modal.style.display = 'none'
     setIsOpened(false)
   }
 
   const clickOutsideModal: any = (event: Event) => {
-    const modal: any = document?.getElementById('modal')
+    const modal = document?.getElementById('modal')
     if (event.target == modal) {
       closeModal()
     }

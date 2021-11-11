@@ -3,7 +3,6 @@
   grid-template-columns: repeat(var(--grid-columns), 1fr);
   gap: 20px;
   grid-auto-rows: minmax(100px, auto);
-  margin-bottom: 20px;
 }
 
 .element {
@@ -14,6 +13,7 @@
   box-shadow: var(--box-shadow-card);
   padding: 20px;
   cursor: pointer;
+  white-space: pre-line;
 }
 
 .element_title,

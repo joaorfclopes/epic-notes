@@ -4,6 +4,7 @@
   border: none;
   color: var(--primary-color);
   font-size: var(--font-size);
+  font-family: var(--font-family);
   background: var(--bg-color-secondary);
   border-radius: var(--border-radius);
   padding: 15px;
@@ -15,14 +16,10 @@
 .description_input {
   display: block;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   resize: both;
-  min-height: 200px;
   line-height: 20px;
   resize: none;
-}
-
-.description_input[contenteditable]:empty::before {
-  content: 'Description';
-  color: gray;
+  min-height: 200px;
+  max-height: 60vh;
 }

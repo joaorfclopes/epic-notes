@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEventHandler, useRef } from 'react'
+import ResizableTextarea from '../../components/ResizableTextarea'
 import buttonStyles from '../../styles/Button.module.css'
 import inputStyles from '../../styles/Input.module.css'
 import { Note } from '../../utils/types'
@@ -13,7 +14,7 @@ function CreateNote(props: Props) {
   const router = useRouter()
 
   const title = useRef<HTMLInputElement>(null)
-  const description = useRef<HTMLSpanElement>(null)
+  const description = useRef<HTMLTextAreaElement>(null)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
@@ -22,7 +23,7 @@ function CreateNote(props: Props) {
     if (null !== title.current || null !== description.current) {
       note = {
         title: title.current?.value as string,
-        description: description.current?.innerText as string
+        description: description.current?.value as string
       }
     }
 
@@ -51,13 +52,9 @@ function CreateNote(props: Props) {
           ref={title}
           placeholder="Title"
         ></input>
-        <span
-          id="description"
-          className={`${inputStyles.input} ${inputStyles.description_input}`}
-          role="textbox"
-          contentEditable
-          ref={description}
-          placeholder="Description"
+        <ResizableTextarea
+          refValue={description}
+          placeholder="Take a note..."
         />
         <button className={buttonStyles.button} type="submit">
           Create

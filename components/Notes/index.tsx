@@ -17,7 +17,7 @@ export default function Notes(props: Props) {
           <div className={styles.element}>
             <h2 className={styles.element_title}>{note.title}</h2>
             <br />
-            <p className={styles.element_description}>{note.description}</p>
+            <div className={styles.element_description}>{note.description}</div>
           </div>
         </Link>
       ))}
