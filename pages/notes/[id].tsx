@@ -84,11 +84,12 @@ function Note(props: Props) {
         </button>
         <button
           className={buttonStyles.button}
+          type="button"
           onClick={() => {
             router.push('/')
           }}
         >
-          Go Back
+          Cancel
         </button>
       </form>
       <Modal
