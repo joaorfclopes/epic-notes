@@ -1,4 +1,4 @@
-import React, { LegacyRef, useState } from 'react'
+import React, { LegacyRef, useEffect, useState } from 'react'
 import inputStyles from '../../styles/Input.module.css'
 
 interface Props {
@@ -11,11 +11,11 @@ export default function ResizableTextarea(props: Props) {
   const { refValue, placeholder, defaultValue } = props
 
   const [rows, setRows] = useState(5)
-  const minRows = 10
+  const minRows = 5
   const maxRows = 50
 
   const handleChange = (event: any) => {
-    const textareaLineHeight = 24
+    const textareaLineHeight = 20
 
     const previousRows = event.target.rows
     event.target.rows = minRows
@@ -33,6 +33,16 @@ export default function ResizableTextarea(props: Props) {
 
     setRows(currentRows < maxRows ? currentRows : maxRows)
   }
+
+  const resize = () => {
+    const textarea = document?.getElementById('description')
+
+    if (textarea) textarea.style.minHeight = `${textarea.scrollHeight}px`
+  }
+
+  useEffect(() => {
+    resize()
+  }, [])
 
   return (
     <textarea

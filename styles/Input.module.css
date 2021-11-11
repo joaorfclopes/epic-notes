@@ -20,6 +20,6 @@
   resize: both;
   line-height: 20px;
   resize: none;
-  min-height: 200px;
+  min-height: auto;
   max-height: 60vh;
 }
