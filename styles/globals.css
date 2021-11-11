@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--primary-color);
   transition: var(--ease-transition);
@@ -31,6 +31,8 @@ span:focus {
 }
 
 :root {
+  --font-family: Roboto, system, -apple-system, BlinkMacSystemFont,
+    Helvetica Neue, Segoe UI, Arial, sans-serif;
   --ease-transition: all 0.5s ease;
   --navbar-height: 80px;
   --icon-width: 30px;
