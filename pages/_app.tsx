@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
 import Router from 'next/router'
+import Script from 'next/script'
 import NProgress from 'nprogress'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
@@ -12,9 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <link rel="stylesheet" href="/nprogress.css" />
-      </Head>
+      <Script src="service_worker_script.js" />
       <Layout>
         <Component {...pageProps} />
       </Layout>

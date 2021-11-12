@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import buttonStyles from '../../styles/Button.module.css'
 import styles from '../../styles/Modal.module.css'
 
@@ -10,11 +10,11 @@ interface Props {
 }
 
 export default function Modal(props: Props) {
-  const openModal = () => {
+  const openModal = useCallback(() => {
     const modal = document?.getElementById('modal')
     if (modal) modal.style.display = 'block'
     props.setIsOpened(true)
-  }
+  }, [props])
 
   const closeModal = () => {
     const modal = document?.getElementById('modal')
@@ -33,7 +33,7 @@ export default function Modal(props: Props) {
     if (props.isOpened) {
       openModal()
     }
-  }, [props.isOpened])
+  }, [openModal, props.isOpened])
 
   return (
     <div
