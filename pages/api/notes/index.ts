@@ -16,6 +16,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const { Note } = await connect()
       if (!(req.body.title === '' && req.body.description === '')) {
         res.json(await Note.create(req.body).catch(catcher))
+      } else {
+        res
+          .status(500)
+          .json({ error: 'Title and Description cannot both be empty' })
       }
     }
   }
