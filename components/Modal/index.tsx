@@ -10,18 +10,16 @@ interface Props {
 }
 
 export default function Modal(props: Props) {
-  const { name, isOpened, setIsOpened, action } = props
-
   const openModal = () => {
     const modal = document?.getElementById('modal')
     if (modal) modal.style.display = 'block'
-    setIsOpened(true)
+    props.setIsOpened(true)
   }
 
   const closeModal = () => {
     const modal = document?.getElementById('modal')
     if (modal) modal.style.display = 'none'
-    setIsOpened(false)
+    props.setIsOpened(false)
   }
 
   const clickOutsideModal: any = (event: Event) => {
@@ -32,15 +30,15 @@ export default function Modal(props: Props) {
   }
 
   useEffect(() => {
-    if (isOpened) {
+    if (props.isOpened) {
       openModal()
     }
-  }, [isOpened])
+  }, [props.isOpened])
 
   return (
     <div
       id="modal"
-      className={`${styles.modal} modal_${name}`}
+      className={`${styles.modal} modal_${props.name}`}
       onClick={clickOutsideModal}
     >
       <div className={styles.modal_content}>
@@ -54,7 +52,7 @@ export default function Modal(props: Props) {
             undone.
           </p>
           <br />
-          <button className={buttonStyles.button} onClick={action}>
+          <button className={buttonStyles.button} onClick={props.action}>
             Yes
           </button>
           <button className={buttonStyles.button} onClick={closeModal}>

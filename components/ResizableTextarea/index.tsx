@@ -1,26 +1,26 @@
 import React, { LegacyRef, useEffect, useState } from 'react'
-import inputStyles from '../../styles/Input.module.css'
 
 interface Props {
+  classes?: string
   refValue: LegacyRef<HTMLTextAreaElement>
   placeholder: string
   defaultValue?: string | undefined
 }
 
 export default function ResizableTextarea(props: Props) {
-  const { refValue, placeholder, defaultValue } = props
-
   const [rows, setRows] = useState(5)
   const minRows = 5
-  const maxRows = 50
+  const maxRows = 30
 
   const handleChange = (event: any) => {
-    const textareaLineHeight = 20
+    const textarea: any = document?.getElementById('resizable_textarea')
+
+    const lineHeight = textarea?.scrollHeight < 330 ? 22 : 21
 
     const previousRows = event.target.rows
     event.target.rows = minRows
 
-    const currentRows = ~~(event.target.scrollHeight / textareaLineHeight)
+    const currentRows = ~~(event.target.scrollHeight / lineHeight)
 
     if (currentRows === previousRows) {
       event.target.rows = currentRows
@@ -28,14 +28,15 @@ export default function ResizableTextarea(props: Props) {
 
     if (currentRows >= maxRows) {
       event.target.rows = maxRows
-      event.target.scrollTop = event.target.scrollHeight
     }
+
+    event.target.scrollTop = event.target.scrollHeight
 
     setRows(currentRows < maxRows ? currentRows : maxRows)
   }
 
   const resize = () => {
-    const textarea = document?.getElementById('description')
+    const textarea = document?.getElementById('resizable_textarea')
 
     if (textarea) textarea.style.minHeight = `${textarea.scrollHeight}px`
   }
@@ -46,11 +47,11 @@ export default function ResizableTextarea(props: Props) {
 
   return (
     <textarea
-      id="description"
-      className={`${inputStyles.input} ${inputStyles.description_input}`}
-      placeholder={placeholder}
-      defaultValue={defaultValue}
-      ref={refValue}
+      id="resizable_textarea"
+      className={props.classes}
+      placeholder={props.placeholder}
+      defaultValue={props.defaultValue}
+      ref={props.refValue}
       rows={rows}
       onChange={handleChange}
     />

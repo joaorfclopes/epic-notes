@@ -8,11 +8,9 @@ interface Props {
 }
 
 export default function Notes(props: Props) {
-  const { notes } = props
-
   return (
     <div className={`${styles.grid} page`}>
-      {notes?.map((note) => (
+      {props.notes?.map((note) => (
         <Link key={note._id} href={`/notes/${note._id}`}>
           <div className={styles.element}>
             <h2 className={styles.element_title}>{note.title}</h2>

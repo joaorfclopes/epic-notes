@@ -53,6 +53,7 @@ function CreateNote(props: Props) {
           placeholder="Title"
         ></input>
         <ResizableTextarea
+          classes={`${inputStyles.input} ${inputStyles.description_input}`}
           refValue={description}
           placeholder="Take a note..."
         />

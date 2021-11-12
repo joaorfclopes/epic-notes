@@ -61,6 +61,7 @@ function Note(props: Props) {
           defaultValue={note.title}
         ></input>
         <ResizableTextarea
+          classes={`${inputStyles.input} ${inputStyles.description_input}`}
           refValue={description}
           placeholder="Take a note..."
           defaultValue={note.description}
