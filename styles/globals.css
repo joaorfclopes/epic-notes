@@ -96,6 +96,7 @@ span:focus {
     --grid-columns: 1;
     --fixed-items-right: 20px;
     --modal-width: 90%;
+    --line-clamp: 12;
   }
 }
 
@@ -106,6 +107,7 @@ span:focus {
     --grid-columns: 2;
     --fixed-items-right: 20px;
     --modal-width: 400px;
+    --line-clamp: 14;
   }
 }
 
@@ -116,6 +118,7 @@ span:focus {
     --grid-columns: 3;
     --fixed-items-right: 60px;
     --modal-width: 400px;
+    --line-clamp: 16;
   }
 }
 
@@ -126,5 +129,6 @@ span:focus {
     --grid-columns: 4;
     --fixed-items-right: 200px;
     --modal-width: 400px;
+    --line-clamp: 18;
   }
 }
