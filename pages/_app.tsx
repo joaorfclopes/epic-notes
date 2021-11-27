@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script src="/service_worker_script.js" />
+      <Script type="text/html" src="/service_worker_script.js" />
       <Layout>
         <Component {...pageProps} />
       </Layout>
