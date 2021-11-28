@@ -3,7 +3,7 @@
   background: none;
   border: none;
   color: var(--primary-color);
-  font-size: var(--font-size);
+  font-size: var(--title-size);
   font-family: var(--font-family);
   background: var(--bg-color-secondary);
   border-radius: var(--border-radius);
@@ -22,4 +22,5 @@
   resize: none;
   min-height: auto;
   max-height: 60vh;
+  font-size: var(--description-size);
 }

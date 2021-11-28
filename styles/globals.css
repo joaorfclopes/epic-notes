@@ -92,7 +92,8 @@ span:focus {
 @media screen and (max-width: 480px) {
   :root {
     --container-padding: 0 20px;
-    --font-size: 16px;
+    --title-size: 16px;
+    --description-size: 12px;
     --grid-columns: 1;
     --fixed-items-right: 20px;
     --modal-width: 90%;
@@ -103,7 +104,8 @@ span:focus {
 @media screen and (min-width: 481px) and (max-width: 768px) {
   :root {
     --container-padding: 0 20px;
-    --font-size: 18px;
+    --title-size: 18px;
+    --description-size: 14px;
     --grid-columns: 2;
     --fixed-items-right: 20px;
     --modal-width: 400px;
@@ -114,7 +116,8 @@ span:focus {
 @media screen and (min-width: 769px) and (max-width: 1279px) {
   :root {
     --container-padding: 0 60px;
-    --font-size: 20px;
+    --title-size: 20px;
+    --description-size: 16px;
     --grid-columns: 3;
     --fixed-items-right: 60px;
     --modal-width: 400px;
@@ -125,7 +128,8 @@ span:focus {
 @media screen and (min-width: 1280px) {
   :root {
     --container-padding: 0 200px;
-    --font-size: 20px;
+    --title-size: 20px;
+    --description-size: 16px;
     --grid-columns: 4;
     --fixed-items-right: 200px;
     --modal-width: 400px;
