@@ -13,6 +13,7 @@
   box-shadow: var(--box-shadow-card);
   padding: 20px;
   cursor: pointer;
+  max-width: var(--notes-max-width, auto);
 }
 
 .element_title,
